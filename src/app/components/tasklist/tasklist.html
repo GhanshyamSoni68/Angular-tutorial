@@ -1,0 +1,18 @@
+<section>
+  <h1>Task List</h1>
+
+  <form (ngSubmit)="addTask()" class="add-row">
+    <input [(ngModel)]="newTitle" name="title" placeholder="New task..." />
+    <button type="submit">Add</button>
+  </form>
+
+  <ul class="list">
+    <li *ngFor="let t of tasks">
+      <app-task
+        [task]="t"
+        (delete)="deleteTask($event)"
+        (toggle)="toggleDone($event)">
+      </app-task>
+    </li>
+  </ul>
+</section>
